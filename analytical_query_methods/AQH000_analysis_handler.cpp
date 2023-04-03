@@ -69,6 +69,7 @@ std::map<std::string, unsigned long> read_freshness_score_transaction_ids(void* 
       }
     }
   }
+  return freshness_score_vertex_transaction_id_map;
 }
 
 /*
