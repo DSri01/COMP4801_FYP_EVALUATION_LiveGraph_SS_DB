@@ -32,6 +32,9 @@ extern Global_Data GD;
 #ifndef AQH000_ANALYSIS_HANDLER
 #define AQH000_ANALYSIS_HANDLER
 
+#define MAX_INVESTORS 200000
+#define MAX_FRIENDS 40000
+
 std::map<std::string, unsigned long> read_freshness_score_transaction_ids(void*, unsigned long, int);
 
 void perform_AQ_1(json, json*);

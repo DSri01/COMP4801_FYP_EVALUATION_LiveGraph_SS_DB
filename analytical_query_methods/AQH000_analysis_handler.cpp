@@ -85,9 +85,10 @@ void perform_AQ_1(json request, json* response_pointer){
   /*--------------------------------------------------------------------------*/
   /*PERFORM AQ_1: BFS HERE*/
 
-  uint64_t max_vertex_id = GD.LiveGraph->get_max_vertex_id();
-  uint64_t num_vertices = GD.m_num_vertices;
-  uint64_t num_edges = GD.m_num_edges;
+  uint64_t max_vertex_id = MAX_INVESTORS;
+  uint64_t num_vertices = MAX_INVESTORS;
+  uint64_t num_edges = MAX_FRIENDS;
+
   uint64_t root = (uint64_t) ext2int((uint64_t) bfs_root_vertex_id);
 
   std::unique_ptr<int64_t[]> ptr_result = do_bfs(transaction, (uint64_t) num_vertices, (uint64_t) num_edges, (uint64_t) max_vertex_id, (uint64_t) root);
@@ -138,8 +139,10 @@ void perform_AQ_2(json request, json* response_pointer){
   /*--------------------------------------------------------------------------*/
   /*PERFORM AQ_2: PageRank HERE*/
 
-  uint64_t num_vertices = GD.m_num_vertices;
-  uint64_t max_vertex_id = GD.LiveGraph->get_max_vertex_id();
+  uint64_t max_vertex_id = MAX_INVESTORS;
+  uint64_t num_vertices = MAX_INVESTORS;
+  uint64_t num_edges = MAX_FRIENDS;
+
 
   std::unique_ptr<double[]> ptr_result = do_pagerank(transaction, num_vertices, max_vertex_id, (uint64_t) pr_max_iters, pr_damping_factor);
 
@@ -187,7 +190,10 @@ void perform_AQ_3(json request, json* response_pointer){
   /*--------------------------------------------------------------------------*/
   /*PERFORM AQ_3: WCC HERE*/
 
-  uint64_t max_vertex_id = GD.LiveGraph->get_max_vertex_id();
+  uint64_t max_vertex_id = MAX_INVESTORS;
+  uint64_t num_vertices = MAX_INVESTORS;
+  uint64_t num_edges = MAX_FRIENDS;
+
 
   std::unique_ptr<uint64_t[]> ptr_components = do_wcc(transaction, max_vertex_id);
 
@@ -235,7 +241,10 @@ void perform_AQ_4(json request, json* response_pointer){
   /*--------------------------------------------------------------------------*/
   /*PERFORM AQ_4: LCC HERE*/
 
-  uint64_t max_vertex_id = GD.LiveGraph->get_max_vertex_id();
+  uint64_t max_vertex_id = MAX_INVESTORS;
+  uint64_t num_vertices = MAX_INVESTORS;
+  uint64_t num_edges = MAX_FRIENDS;
+
 
   std::unique_ptr<double[]> scores = do_lcc_undirected(transaction, max_vertex_id);
 
@@ -285,7 +294,10 @@ void perform_AQ_5(json request, json* response_pointer){
   /*--------------------------------------------------------------------------*/
   /*PERFORM AQ_5: CDLP HERE*/
 
-  uint64_t max_vertex_id = GD.LiveGraph->get_max_vertex_id();
+  uint64_t max_vertex_id = MAX_INVESTORS;
+  uint64_t num_vertices = MAX_INVESTORS;
+  uint64_t num_edges = MAX_FRIENDS;
+
 
   std::unique_ptr<uint64_t[]> labels = do_cdlp(transaction, max_vertex_id, false, (uint64_t) cdlp_max_iters);
 
@@ -335,8 +347,10 @@ void perform_AQ_6(json request, json* response_pointer){
   /*--------------------------------------------------------------------------*/
   /*PERFORM AQ_6: SSSP HERE*/
 
-  uint64_t max_vertex_id = GD.LiveGraph->get_max_vertex_id();
-  uint64_t num_edges = GD.m_num_edges;
+  uint64_t max_vertex_id = MAX_INVESTORS;
+  uint64_t num_vertices = MAX_INVESTORS;
+  uint64_t num_edges = MAX_FRIENDS;
+
   uint64_t root = (uint64_t) ext2int((uint64_t) sssp_root_vertex_id);
 
   double delta = 2.0; // same value used in the GAPBS, at least for most graphs
