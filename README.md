@@ -28,7 +28,8 @@ HTAP Graph Database Storage System.
 
 - **Step 5:** Update the ```Makefile``` with the *actual path of the directory*
 containing the ``` liblivegraph.so``` file from Step 4 in the place holders
-provided in the compilation flags in the Makefile.
+provided in the compilation flags in the Makefile. The first *make* command has
+been left as an example of how this is supposed to be done.
 
 - **Step 6:** Install ```libtbb-dev```.
 
